@@ -1,0 +1,50 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+      <a routerLink="/home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <h2 class="m-0 text-primary">LAST MINUTE GYAN</h2>
+      </a>
+      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto p-4 p-lg-0">
+              <a routerLink="/admin/dashboard" class="nav-item nav-link ">Dashboard</a>
+              <a routerLink="/admin/students" class="nav-item nav-link">Students</a>
+              <!-- <a routerLink="/Usercourse" class="nav-item nav-link">Courses</a> -->
+              <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
+                  <div class="dropdown-menu fade-down m-0">
+                      <a routerLink="/admin/manage-course" class="dropdown-item">View Course</a>
+                      <a routerLink="/admin/add-course" class="dropdown-item">Add Course</a>
+                  </div>
+              </div>
+              <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Branches</a>
+                  <div class="dropdown-menu fade-down m-0">
+                      <a routerLink="/admin/manage-branch" class="dropdown-item">View Branch</a>
+                      <a routerLink="/admin/add-branch" class="dropdown-item">Add Branch</a>
+                  </div>
+              </div>
+              <a routerLink="/admin/view-material" class="nav-item nav-link ">Material</a>
+              <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Quiz</a>
+                  <div class="dropdown-menu fade-down m-0">
+                      <a routerLink="/admin/manage-quiz" class="dropdown-item">View quiz</a>
+                      <a routerLink="/admin/add-quiz" class="dropdown-item">Add Quiz</a>
+                  </div>
+              </div>
+              <a (click)="logout()" style="cursor:pointer" class="nav-item nav-link "><i class="bi bi-box-arrow-right" style="font-size: larger;"></i></a>
+              <!-- <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Syllabus</a>
+                  <div class="dropdown-menu fade-down m-0">
+                      <a href="team.html" class="dropdown-item">PTU</a>
+                      <a href="testimonial.html" class="dropdown-item">GNDU</a>
+                      <a href="404.html" class="dropdown-item">DAV UNIVERSITY</a>
+                  </div>
+              </div> -->
+              <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+          </div>
+          <!-- <a routerLink="/login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login/Register<i class="fa fa-arrow-right ms-3"></i></a> -->
+      </div>
+  </nav>
+</div>

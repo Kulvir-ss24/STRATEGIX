@@ -1,0 +1,111 @@
+
+<section class="h-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem;
+                border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase text-center">Add Material</h3>
+                  <form [formGroup]="materialForm" (ngSubmit)="submit()">
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-group">
+                          <select class="form-control"
+                            id="exampleFormControlSelect1" formControlName="materialType">
+                            <option disabled selected value=""> Select Option</option>
+                            <option>NOTES</option>
+                            <option>LABFILES</option>
+                            <option>QUESTIONPAPERS</option>
+                          </select>
+                          <label for="exampleFormControlSelect1">Material Type
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-group">
+                          <select class="form-control"
+                            id="exampleFormControlSelect1" formControlName = "courseId" (change) = "getBranch($event)">
+                            <option value="">Choose Course</option>
+                            <option *ngFor = "let i of course" [value]="i?._id">{{ i?.name }}</option>
+                          </select>
+                          <label for="exampleFormControlSelect1">Course
+                          </label>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <select class="form-control" id="exampleFormControlSelect1" formControlName = "branchId">
+                          <option value="">Choose Branch</option>
+                          <option *ngFor = "let i of branch" [value]="i?._id">{{ i?.name }}</option>
+                        </select>
+                        <label for="exampleFormControlSelect1">Branch </label>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <input class="form-control form-control" id="formFileLg"
+                        type="number" formControlName="semester" min="0">
+                        <label for="exampleFormControlSelect1">Semester</label>
+                      </div>
+
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Example1m1">Branch</label>
+                          </div>
+                        </div>
+                      </div> -->
+                    <div class="row">
+
+                      <div class="form-group">
+                        <textarea class="form-control"
+                          id="exampleFormControlTextarea1" formControlName="description" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Description</label>
+                      </div><br>
+                      <br>
+
+                    </div>
+                    <br>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form3Example99" class="form-control
+                        form-control-lg" formControlName="title" />
+                      <label class="form-label" for="form3Example99">Title</label>
+                    </div>
+
+                    <div>
+                      <input class="form-control form-control-lg" id="formFileLg" type="url" formControlName="url">
+                      <label for="formFileLg" class="form-label">Url</label>
+                    </div>
+
+                    <div>
+                      <input class="form-control form-control-lg" id="formFileLg"
+                        type="file" (change)="uploadFile($event)">
+                      <label for="formFileLg" class="form-label">Attachment</label>
+                    </div>
+
+                    <div class="d-flex justify-content-end pt-3">
+                      <button type="reset" class="btn btn-light btn-lg">Reset all</button>
+                      <button type="submit" [disabled]="materialForm.invalid" class="btn btn-primary btn-lg ms-2">Submit</button>
+                    </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

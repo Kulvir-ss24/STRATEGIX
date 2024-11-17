@@ -1,0 +1,29 @@
+
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">View Branches</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let i of data">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{i?.courseId.name}} {{i?.name}}</h5>
+            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+            <a [routerLink]="['/user/view-notes', i?._id]" class="btn btn-primary m-1">Notes</a> <br>
+            <a [routerLink]="['/user/view-quiz', i?._id]" class="btn btn-primary m-1">Quizzes</a> <br>
+            <a [routerLink]="['/user/view-labfiles', i?._id]" class="btn btn-primary m-1">Lab Files</a> <br>
+            <a [routerLink]="['/user/view-questionpapers', i?._id]" class="btn btn-primary m-1">Question Papers</a> <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

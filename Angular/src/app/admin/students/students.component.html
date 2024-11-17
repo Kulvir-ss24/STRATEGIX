@@ -1,0 +1,54 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Manage Students</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="r1 text-primary">
+              <th scope="col">#</th>
+              <th scope="col">Roll No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Email</th>
+              <th scope="col">Course</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Joined</th>
+              <th scope="col">Status</th>
+              <th scope='col'>Change Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of data">
+              <th scope="row">{{ i?.studentId }}</th>
+              <td>{{ i?.rollNo }}</td>
+              <td>{{ i?.name }}</td>
+              <td>{{ i?.contact }}</td>
+              <td>{{ i?.email }}</td>
+              <td>{{ i?.courseId.name }}</td>
+              <td>{{ i?.branchId.name }}</td>
+              <td>{{ i?.userId.createdAt | date }}</td>
+              <td>{{ i?.userId?.status ? 'Active' : 'Inactive'}}</td>
+              <td>
+                <button class="btn btn-sm btn-success" [disabled]="i?.userId?.status" (click)="changeStatus(i?.userId._id,
+                  'true')">Active</button>
+                <button class="btn btn-sm btn-danger"  [disabled]="!i?.userId?.status" (click)="changeStatus(i?.userId._id,
+                  'false')">Inactive</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

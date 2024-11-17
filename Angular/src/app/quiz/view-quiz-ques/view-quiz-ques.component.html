@@ -1,0 +1,84 @@
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Quiz Questions</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header End -->
+
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12 my-4" *ngFor="let i of quizQues, let y = index">
+      <p class="fw-bold"> {{i?.questionNo}}. {{i?.question}}</p>
+      <div>
+        <!-- <input type="radio" name="box" id="one"> 
+        <input type="radio" name="box" id="two">
+        <input type="radio" name="box" id="three">
+        <input type="radio" name="box" id="four"> -->
+        <label  class="box first">
+          <div class="course">
+            <input type="radio" (change)="selectOption(i?._id, 'option1' , y)" [name]="i?._id">
+            <span class="subject ms-4"> {{i?.option1}} </span>
+          </div>
+        </label>
+        <label class="box second">
+          <div class="course">
+            <input type="radio" (change)="selectOption(i?._id, 'option2' , y)"  [name]="i?._id">
+            <span class="subject ms-4"> {{i?.option2}} </span>
+          </div>
+        </label>
+        <label class="box third">
+          <div class="course">
+            <input type="radio" (change)="selectOption(i?._id, 'option3' , y)" [name]="i?._id">
+            <span class="subject ms-4"> {{i?.option3}} </span>
+          </div>
+        </label>
+        <label class="box forth">
+          <div class="course"> 
+            <input type="radio"(change)="selectOption(i?._id, 'option4' , y)"  [name]="i?._id">
+            <span class="subject ms-4">{{i?.option4}} </span>
+          </div>
+        </label>
+        <!-- <div class="alert alert-success p-3" *ngIf="" role="alert">
+          Your answer is correct
+        </div>
+        <div class="alert alert-danger p-3" *ngIf="" role="alert">
+          Your answer is incorrect.
+        </div> -->
+      </div>
+
+
+    <!-- </div> <div class="col-12"> <p class="fw-bold mt-5">2. Complete the
+        following sentences:Alice couldn't _______ the humilation any longer and
+        stormed out of the room red as a bed</p> <div> <div class="row"> <div
+            class="col-md-6"> <input type="radio" name="box" id="five"> <label
+              for="five" class="box fifth w-100"> <div class="course"> <span
+                  class="circle"></span> <span class="subject">is</span> </div>
+            </label> </div> <div class="col-md-6"> <input type="radio"
+              name="box" id="six"> <label for="six" class="box sixth w-100">
+              <div class="course"> <span class="circle"></span> <span
+                  class="subject"> was </span> </div> </label> </div> <div
+            class="col-md-6"> <input type="radio" name="box" id="seven"> <label
+              for="seven" class="box seveth w-100"> <div class="course"> <span
+                  class="circle"></span> <span class="subject"> will </span>
+              </div> </label> </div> <div class="col-md-6"> <input type="radio"
+              name="box" id="eight"> <label for="eight" class="box eighth
+              w-100"> <div class="course"> <span class="circle"></span> <span
+                  class="subject"> None of the above </span> </div> </label>
+          </div> </div> </div> </div> <div class="col-12"> <div class="d-flex
+        justify-content-center"> <button class="btn btn-primary px-4 py-2
+          fw-bold"> continue</button> </div> </div>  -->
+    </div>
+
+    
+  </div>
+  <div class="text-end">
+    <button type="submit" class="btn btn-primary p-3" (click) = "submit()">Submit</button>
+  </div>
+</div>
+
+

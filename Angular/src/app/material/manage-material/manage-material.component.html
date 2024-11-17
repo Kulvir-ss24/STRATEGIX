@@ -1,0 +1,72 @@
+
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Manage Material</h1>
+        <!-- <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        </ol>
+                    </nav> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <h4>My Added Materials</h4>
+      </div>
+      <div class="col-lg-3 text-end">
+        <button class="btn btn-sm btn-primary mx-1" routerLink="/user/add-material">Add Material</button>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="r1 text-primary">
+              <th scope="col">#</th>
+              <th scope="col">Material</th>
+              <th scope="col">Course</th>
+              <th scope="col">Title</th>
+              <th scope="col">Semester</th>
+              <th scope="col">Description</th>
+              <th scope="col">Link</th>
+              <th scope="col">Attachment</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of material">
+              <th scope="row">{{i?.materialId}}</th>
+              <td>{{i?.materialType}}</td>
+              <td>{{i?.courseId?.name}} {{ i?.branchId?.name}}</td>
+              <td>{{i?.title}}</td>
+              <td>{{i?.semester}}</td>
+              <td>{{i?.description}}</td>
+              <td>
+                <button class="btn btn-sm btn-primary" (click)="openLink(i?.url)">Open</button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary"
+                  (click)="openAttachment(i?.image)">Open</button>
+              </td>
+              <td>{{ i?.status ? 'Active' : 'Inactive'}}</td>
+              <td>
+                <button class="btn btn-sm btn-primary"
+                  [routerLink]="['/user/update-material', i._id]">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

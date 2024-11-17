@@ -1,0 +1,60 @@
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Manage Quiz
+          Questions</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <h4>Question List</h4>
+      </div>
+      <div class="col-lg-3 text-end">
+        <button class="btn btn-sm btn-primary mx-1"  *ngIf="quizQues.length<total" [routerLink]="['/admin/add-quiz-ques', quizId]">Add New Question</button>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+        <h2 *ngIf="quizQues.length==0">No Question Added</h2>
+        <table class="table table-bordered table-hover"  *ngIf="quizQues.length>0">
+          <thead>
+            <tr class="r1 text-primary">
+              <th scope="col">Question No.</th>
+              <th scope="col">Quiz Question</th>
+              <th scope="col">Option 1</th>
+              <th scope="col">Option 2</th>
+              <th scope="col">Option 3</th>
+              <th scope="col">Option 4</th>
+              <th scope="col">Answer</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of quizQues">
+              <th scope="row">{{i?.questionNo}}</th>
+              <td>{{i?.question}}</td>
+              <td>{{i?.option1}}</td>
+              <td>{{i?.option2}}</td>
+              <td>{{i?.option3}}</td>
+              <td>{{i?.option4}}</td>
+              <td>{{i?.answer}}</td>
+              <td>{{i?.createdAt | date}}</td>
+              <td>
+                <button class="btn btn-sm btn-primary mx-1"
+                  [routerLink]="['/admin/update-quiz-ques', i._id]">Edit</button>
+                <button class="btn btn-sm btn-primary mx-1" (click)="delete(i._id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

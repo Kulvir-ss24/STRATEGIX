@@ -1,0 +1,29 @@
+
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Notes</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <h3>Notes</h3>
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let i of material">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{i?.title}}</h5>
+            <h6 class="card-title">{{i?.courseId?.name}} {{i?.branchId?.name}} Sem: {{i?.semester}}</h6>
+            <p class="card-text">{{i?.description}}</p>
+            <button class="btn btn-sm btn-primary mx-1" (click)="openLink(i?.url)">Link</button>
+            <button class="btn btn-sm btn-primary mx-1" (click)="openAttachment(i?.image)">Attachment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

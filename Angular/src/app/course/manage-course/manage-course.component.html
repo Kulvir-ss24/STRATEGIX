@@ -1,0 +1,48 @@
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white animated slideInDown">Manage Courses</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="r1 text-primary">
+              <th scope="col">Course Id</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Semesters</th>
+              <th scope="col">Status</th>
+              <th scope='col'>Change Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of data">
+              <th scope="row">{{ i?.courseId }}</th>
+              <td>{{ i?.name }}</td>
+              <td>{{ i?.totalSemesters }}</td>
+              <td>{{ i?.status ? 'Active' : 'Inactive'}}</td>
+              <td>
+                <button class="btn btn-sm btn-success" [disabled]="i?.status" (click)="changeStatus(i?._id,
+                  'true')">Active</button>
+                <button class="btn btn-sm btn-danger" [disabled]="!i?.status" (click)="changeStatus(i?._id,
+                  'false')">Inactive</button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary"
+                  [routerLink]="['/admin/update-course', i._id]">Edit</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
